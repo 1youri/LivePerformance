@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Live_Performance
+namespace Live_Performance.Views
 {
-    public partial class Form1 : Form
+    public partial class CreateContractForm : Form
     {
-        public Form1()
+        public CreateContractForm()
         {
             InitializeComponent();
         }
