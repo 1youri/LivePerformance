@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Live_Performance.Repositories;
 
 namespace Live_Performance.Models
 {
@@ -15,10 +16,34 @@ namespace Live_Performance.Models
             Email = email;
             AccountType = accountType;
         }
-
-        public bool Login(string username, string password)
+        public Account(int gebruikerID, string naam, string email, string accountType)
         {
-            throw new NotImplementedException();
+            GebruikerID = gebruikerID;
+            Naam = naam;
+            Email = email;
+
+            AccountType = Type.Gebruiker;
+            switch (accountType)
+            {
+                case "Administrator":
+                    AccountType = Type.Administrator;
+                    break;
+                case "Gebruiker":
+                    AccountType = Type.Gebruiker;
+                    break;
+            }
+            
+        }
+        public Account(int gebruikerID)
+        {
+            GebruikerID = gebruikerID;
+            if (gebruikerID != 0)
+            {
+                Account thisAccount = AccountRepo.GetAccount(gebruikerID);
+                Naam = thisAccount.Naam;
+                Email = thisAccount.Email;
+                AccountType = thisAccount.AccountType;
+            }
         }
 
         public enum Type

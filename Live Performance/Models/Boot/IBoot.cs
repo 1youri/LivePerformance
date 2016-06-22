@@ -1,6 +1,6 @@
 ﻿namespace Live_Performance.Models.Boot
 {
-    interface IBoot
+    public interface IBoot
     {
         string Naam { get; set; }
         string SoortBeschrijving { get; set; }

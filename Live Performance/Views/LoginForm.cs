@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Live_Performance.Logic;
 
 namespace Live_Performance.Views
 {
@@ -15,6 +16,14 @@ namespace Live_Performance.Views
         public LoginForm()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (Login.LoginUser(tbUsername.Text, tbPassword.Text))
+            {
+                
+            }
         }
     }
 }

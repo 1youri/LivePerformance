@@ -1,6 +1,6 @@
 ﻿namespace Live_Performance.Models.Boot
 {
-    class SpierKrachtBoot : IBoot
+    public class SpierKrachtBoot : IBoot
     {
         public SpierKrachtBoot(string naam, string soortBeschrijving, string type)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Live_Performance.Models.Boot
 {
-    class MotorBoot : IBoot
+    public class MotorBoot : IBoot
     {
         public MotorBoot(string naam, string soortBeschrijving, string type, int tankInhoud)
         {

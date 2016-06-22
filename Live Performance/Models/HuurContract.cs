@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Live_Performance.Models
 {
-    class HuurContract
+    public class HuurContract
     {
         public HuurContract(int huurContractID, Account huurder, DateTime beginDatum, DateTime eindDatum)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Live_Performance.Models
 {
-    class ExtraArtikel
+    public class ExtraArtikel
     {
         public int ArtikelID { get; set; }
         public string Beschrijving { get; set; }

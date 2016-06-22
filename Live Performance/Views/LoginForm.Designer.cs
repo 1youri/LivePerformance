@@ -53,6 +53,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(250, 26);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // lblGebruikersnaam
             // 
@@ -82,6 +83,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Aanmelden";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnRegister
             // 
