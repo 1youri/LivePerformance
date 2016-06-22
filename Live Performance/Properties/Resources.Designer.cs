@@ -69,5 +69,25 @@ namespace Live_Performance.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sailing_boat_163614_960_7201 {
+            get {
+                object obj = ResourceManager.GetObject("sailing-boat-163614_960_7201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sailing_boat_trans {
+            get {
+                object obj = ResourceManager.GetObject("sailing-boat-trans", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
