@@ -44,12 +44,14 @@
             this.btnBootLeft = new System.Windows.Forms.Button();
             this.btnArtLeft = new System.Windows.Forms.Button();
             this.btnArtRight = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnBudgetBerekening = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numbBudget = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAanmaken = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.lblCost = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numbBudget)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFrom
@@ -93,7 +95,7 @@
             this.lbBotenLinks.FormattingEnabled = true;
             this.lbBotenLinks.Location = new System.Drawing.Point(243, 35);
             this.lbBotenLinks.Name = "lbBotenLinks";
-            this.lbBotenLinks.Size = new System.Drawing.Size(220, 186);
+            this.lbBotenLinks.Size = new System.Drawing.Size(289, 186);
             this.lbBotenLinks.TabIndex = 4;
             this.lbBotenLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbBotenLinks_MouseDoubleClick);
             // 
@@ -102,7 +104,7 @@
             this.lbArtLinks.FormattingEnabled = true;
             this.lbArtLinks.Location = new System.Drawing.Point(243, 258);
             this.lbArtLinks.Name = "lbArtLinks";
-            this.lbArtLinks.Size = new System.Drawing.Size(220, 147);
+            this.lbArtLinks.Size = new System.Drawing.Size(289, 147);
             this.lbArtLinks.TabIndex = 5;
             this.lbArtLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbArtLinks_MouseDoubleClick);
             // 
@@ -130,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(500, 235);
+            this.label3.Location = new System.Drawing.Point(568, 235);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 20);
             this.label3.TabIndex = 11;
@@ -140,7 +142,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(500, 12);
+            this.label4.Location = new System.Drawing.Point(568, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 20);
             this.label4.TabIndex = 10;
@@ -149,24 +151,24 @@
             // lbArtRechts
             // 
             this.lbArtRechts.FormattingEnabled = true;
-            this.lbArtRechts.Location = new System.Drawing.Point(504, 258);
+            this.lbArtRechts.Location = new System.Drawing.Point(572, 258);
             this.lbArtRechts.Name = "lbArtRechts";
-            this.lbArtRechts.Size = new System.Drawing.Size(220, 147);
+            this.lbArtRechts.Size = new System.Drawing.Size(269, 147);
             this.lbArtRechts.TabIndex = 9;
             this.lbArtRechts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbArtRechts_MouseDoubleClick);
             // 
             // lbBotenRechts
             // 
             this.lbBotenRechts.FormattingEnabled = true;
-            this.lbBotenRechts.Location = new System.Drawing.Point(504, 35);
+            this.lbBotenRechts.Location = new System.Drawing.Point(572, 35);
             this.lbBotenRechts.Name = "lbBotenRechts";
-            this.lbBotenRechts.Size = new System.Drawing.Size(220, 186);
+            this.lbBotenRechts.Size = new System.Drawing.Size(269, 186);
             this.lbBotenRechts.TabIndex = 8;
             this.lbBotenRechts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbBotenRechts_MouseDoubleClick);
             // 
             // btnBootRight
             // 
-            this.btnBootRight.Location = new System.Drawing.Point(470, 82);
+            this.btnBootRight.Location = new System.Drawing.Point(538, 82);
             this.btnBootRight.Name = "btnBootRight";
             this.btnBootRight.Size = new System.Drawing.Size(28, 23);
             this.btnBootRight.TabIndex = 12;
@@ -176,7 +178,7 @@
             // 
             // btnBootLeft
             // 
-            this.btnBootLeft.Location = new System.Drawing.Point(469, 111);
+            this.btnBootLeft.Location = new System.Drawing.Point(537, 111);
             this.btnBootLeft.Name = "btnBootLeft";
             this.btnBootLeft.Size = new System.Drawing.Size(28, 23);
             this.btnBootLeft.TabIndex = 13;
@@ -186,7 +188,7 @@
             // 
             // btnArtLeft
             // 
-            this.btnArtLeft.Location = new System.Drawing.Point(469, 330);
+            this.btnArtLeft.Location = new System.Drawing.Point(537, 330);
             this.btnArtLeft.Name = "btnArtLeft";
             this.btnArtLeft.Size = new System.Drawing.Size(28, 23);
             this.btnArtLeft.TabIndex = 15;
@@ -196,7 +198,7 @@
             // 
             // btnArtRight
             // 
-            this.btnArtRight.Location = new System.Drawing.Point(470, 301);
+            this.btnArtRight.Location = new System.Drawing.Point(538, 301);
             this.btnArtRight.Name = "btnArtRight";
             this.btnArtRight.Size = new System.Drawing.Size(28, 23);
             this.btnArtRight.TabIndex = 14;
@@ -204,32 +206,33 @@
             this.btnArtRight.UseVisualStyleBackColor = true;
             this.btnArtRight.Click += new System.EventHandler(this.btnArtRight_Click);
             // 
-            // button5
+            // btnBudgetBerekening
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(12, 227);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(197, 37);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Mogelijke meren inkijken";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnBudgetBerekening.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBudgetBerekening.Location = new System.Drawing.Point(12, 227);
+            this.btnBudgetBerekening.Name = "btnBudgetBerekening";
+            this.btnBudgetBerekening.Size = new System.Drawing.Size(197, 37);
+            this.btnBudgetBerekening.TabIndex = 16;
+            this.btnBudgetBerekening.Text = "Mogelijke meren inkijken";
+            this.btnBudgetBerekening.UseVisualStyleBackColor = true;
+            this.btnBudgetBerekening.Click += new System.EventHandler(this.btnBudgetBerekening_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 167);
+            this.label5.Location = new System.Drawing.Point(12, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 17;
             this.label5.Text = "Budget";
             // 
-            // numericUpDown1
+            // numbBudget
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(36, 201);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDown1.TabIndex = 18;
+            this.numbBudget.Location = new System.Drawing.Point(36, 201);
+            this.numbBudget.Name = "numbBudget";
+            this.numbBudget.Size = new System.Drawing.Size(69, 20);
+            this.numbBudget.TabIndex = 18;
             // 
             // label6
             // 
@@ -252,16 +255,39 @@
             this.btnAanmaken.UseVisualStyleBackColor = true;
             this.btnAanmaken.Click += new System.EventHandler(this.btnAanmaken_Click);
             // 
+            // lblCost
+            // 
+            this.lblCost.AutoSize = true;
+            this.lblCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCost.Location = new System.Drawing.Point(8, 114);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(115, 20);
+            this.lblCost.TabIndex = 21;
+            this.lblCost.Text = "Kosten Huur: €";
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Location = new System.Drawing.Point(13, 271);
+            this.lblResult.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(185, 32);
+            this.lblResult.TabIndex = 22;
+            this.lblResult.Text = "U kunt met dit budget x meren bevaren.";
+            // 
             // CreateContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 411);
+            this.ClientSize = new System.Drawing.Size(853, 411);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.lblCost);
             this.Controls.Add(this.btnAanmaken);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numbBudget);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnBudgetBerekening);
             this.Controls.Add(this.btnArtLeft);
             this.Controls.Add(this.btnArtRight);
             this.Controls.Add(this.btnBootLeft);
@@ -280,7 +306,7 @@
             this.Controls.Add(this.dtpFrom);
             this.Name = "CreateContractForm";
             this.Text = "CreateContractForm";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numbBudget)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,10 +330,12 @@
         private System.Windows.Forms.Button btnBootLeft;
         private System.Windows.Forms.Button btnArtLeft;
         private System.Windows.Forms.Button btnArtRight;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnBudgetBerekening;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numbBudget;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAanmaken;
+        private System.Windows.Forms.Label lblCost;
+        private System.Windows.Forms.Label lblResult;
     }
 }

@@ -10,8 +10,11 @@ using Oracle.DataAccess.Client;
 
 namespace Live_Performance.Repositories
 {
-    class BijkomendeArtRepo
+    public class BijkomendeArtRepo
     {
+        /// <summary>
+        /// Update alle relevante data rondom Bijkomen Artikelen
+        /// </summary>
         public static void UpdateData()
         {
             Data.ExtraArtikelen = new List<ExtraArtikel>();
@@ -40,7 +43,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
         }
 
@@ -62,7 +66,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
             return false;
         }
@@ -86,9 +91,45 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
             return false;
+        }
+
+        public static List<ExtraArtikel> GetRelevantArtik(int id)
+        {
+            List<ExtraArtikel> returnList = new List<ExtraArtikel>();
+            try
+            {
+                string sql = "SELECT * FROM EXTRAARTIK EX, CONTRACTARTIKEL CA WHERE EX.ARTIKELID = CA.ARTIKELID AND CA.HUURCONTRACTID = :huurcontractID";
+                using (OracleConnection conn = Data.Connection())
+                {
+                    using (OracleCommand cmd = new OracleCommand(sql, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("huurcontractID", id));
+                        using (OracleDataReader r = cmd.ExecuteReader())
+                        {
+                            while (r.Read())
+                            {
+                                returnList.Add(new ExtraArtikel()
+                                {
+                                    ArtikelID = r["artikelID"].ToInt(),
+                                    Beschrijving = r["beschrijving"].ToString(),
+                                    Count = r["Aantal"].ToInt()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (OracleException e)
+            {
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
+            }
+
+            return returnList;
         }
     }
 }

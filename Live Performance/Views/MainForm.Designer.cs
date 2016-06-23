@@ -44,7 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbArtiks = new System.Windows.Forms.ListBox();
             this.btnZeilGame = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnExtraArtik = new System.Windows.Forms.Button();
             this.btnVloot = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -56,12 +56,15 @@
             this.chHuurder,
             this.chFrom,
             this.chTo});
+            this.lvHuurContracten.FullRowSelect = true;
+            this.lvHuurContracten.GridLines = true;
             this.lvHuurContracten.Location = new System.Drawing.Point(178, 12);
             this.lvHuurContracten.Name = "lvHuurContracten";
             this.lvHuurContracten.Size = new System.Drawing.Size(387, 323);
             this.lvHuurContracten.TabIndex = 0;
             this.lvHuurContracten.UseCompatibleStateImageBehavior = false;
             this.lvHuurContracten.View = System.Windows.Forms.View.Details;
+            this.lvHuurContracten.SelectedIndexChanged += new System.EventHandler(this.lvHuurContracten_SelectedIndexChanged);
             // 
             // HuurCode
             // 
@@ -103,12 +106,13 @@
             this.btnVoorspelling.TabIndex = 2;
             this.btnVoorspelling.Text = "Voorspelling gevoelstemperatuur";
             this.btnVoorspelling.UseVisualStyleBackColor = true;
+            this.btnVoorspelling.Visible = false;
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(606, 12);
+            this.lblInfo.Location = new System.Drawing.Point(568, 12);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(227, 24);
             this.lblInfo.TabIndex = 3;
@@ -117,7 +121,7 @@
             // lblNaam
             // 
             this.lblNaam.AutoSize = true;
-            this.lblNaam.Location = new System.Drawing.Point(610, 50);
+            this.lblNaam.Location = new System.Drawing.Point(572, 50);
             this.lblNaam.Name = "lblNaam";
             this.lblNaam.Size = new System.Drawing.Size(79, 13);
             this.lblNaam.TabIndex = 4;
@@ -126,7 +130,7 @@
             // lblDatumVan
             // 
             this.lblDatumVan.AutoSize = true;
-            this.lblDatumVan.Location = new System.Drawing.Point(610, 73);
+            this.lblDatumVan.Location = new System.Drawing.Point(572, 73);
             this.lblDatumVan.Name = "lblDatumVan";
             this.lblDatumVan.Size = new System.Drawing.Size(72, 13);
             this.lblDatumVan.TabIndex = 5;
@@ -135,7 +139,7 @@
             // lblDatumTot
             // 
             this.lblDatumTot.AutoSize = true;
-            this.lblDatumTot.Location = new System.Drawing.Point(610, 97);
+            this.lblDatumTot.Location = new System.Drawing.Point(572, 97);
             this.lblDatumTot.Name = "lblDatumTot";
             this.lblDatumTot.Size = new System.Drawing.Size(60, 13);
             this.lblDatumTot.TabIndex = 6;
@@ -144,15 +148,15 @@
             // lbBoten
             // 
             this.lbBoten.FormattingEnabled = true;
-            this.lbBoten.Location = new System.Drawing.Point(613, 136);
+            this.lbBoten.Location = new System.Drawing.Point(572, 136);
             this.lbBoten.Name = "lbBoten";
-            this.lbBoten.Size = new System.Drawing.Size(147, 147);
+            this.lbBoten.Size = new System.Drawing.Size(192, 147);
             this.lbBoten.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(610, 120);
+            this.label3.Location = new System.Drawing.Point(572, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 8;
@@ -161,7 +165,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(763, 120);
+            this.label4.Location = new System.Drawing.Point(767, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 13);
             this.label4.TabIndex = 10;
@@ -170,9 +174,9 @@
             // lbArtiks
             // 
             this.lbArtiks.FormattingEnabled = true;
-            this.lbArtiks.Location = new System.Drawing.Point(766, 136);
+            this.lbArtiks.Location = new System.Drawing.Point(770, 136);
             this.lbArtiks.Name = "lbArtiks";
-            this.lbArtiks.Size = new System.Drawing.Size(147, 147);
+            this.lbArtiks.Size = new System.Drawing.Size(146, 147);
             this.lbArtiks.TabIndex = 9;
             // 
             // btnZeilGame
@@ -184,16 +188,18 @@
             this.btnZeilGame.TabIndex = 11;
             this.btnZeilGame.Text = "Zeil-Game Spelen";
             this.btnZeilGame.UseVisualStyleBackColor = true;
+            this.btnZeilGame.Visible = false;
             // 
-            // button4
+            // btnExport
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(766, 289);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 46);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Huurcontract Exporteren";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(770, 288);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(146, 46);
+            this.btnExport.TabIndex = 12;
+            this.btnExport.Text = "Huurcontract Exporteren";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnExtraArtik
             // 
@@ -204,6 +210,7 @@
             this.btnExtraArtik.TabIndex = 13;
             this.btnExtraArtik.Text = "Bijkomende artikelen aanpassen";
             this.btnExtraArtik.UseVisualStyleBackColor = true;
+            this.btnExtraArtik.Visible = false;
             // 
             // btnVloot
             // 
@@ -214,6 +221,7 @@
             this.btnVloot.TabIndex = 14;
             this.btnVloot.Text = "Vloot aanpassen";
             this.btnVloot.UseVisualStyleBackColor = true;
+            this.btnVloot.Visible = false;
             // 
             // MainForm
             // 
@@ -222,7 +230,7 @@
             this.ClientSize = new System.Drawing.Size(928, 351);
             this.Controls.Add(this.btnVloot);
             this.Controls.Add(this.btnExtraArtik);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnZeilGame);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbArtiks);
@@ -263,7 +271,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lbArtiks;
         private System.Windows.Forms.Button btnZeilGame;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnExtraArtik;
         private System.Windows.Forms.Button btnVloot;
         private System.Windows.Forms.ColumnHeader HuurCode;

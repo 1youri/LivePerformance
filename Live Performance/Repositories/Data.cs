@@ -20,6 +20,10 @@ namespace Live_Performance.Repositories
         public static List<ExtraArtikel> ExtraArtikelen { get; set; }
         public static Account CurrentAccount { get; set; }
 
+        /// <summary>
+        /// Geeft een OracleConnection, hiermee kan je makkelijk wisselen tussen verbindingen.
+        /// </summary>
+        /// <returns></returns>
         public static OracleConnection Connection()
         {
             string ConnectionString = "";
@@ -45,12 +49,15 @@ namespace Live_Performance.Repositories
             return conn;
         }
 
+        /// <summary>
+        /// Update alle data in de gehele applicatie, meestal gebruikt bij het opstarten van de applicatie
+        ///  </summary>
         public static void UpdateAllData()
         {
             AccountRepo.UpdateData();
-            HuurContractRepo.UpdateData();
             BootRepo.UpdateData();
             BijkomendeArtRepo.UpdateData();
+            HuurContractRepo.UpdateData();
         }
     }
 }

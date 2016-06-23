@@ -20,6 +20,8 @@ namespace Live_Performance.Views
         private List<IBoot> botenRight;
         private List<ExtraArtikel> artikelenRight;
         private HuurContract logic;
+        private double cost;
+
         public CreateContractForm()
         {
             InitializeComponent();
@@ -30,29 +32,32 @@ namespace Live_Performance.Views
             RefreshLists();
 
             dtpTo.MinDate = dtpFrom.Value;
-            dtpFrom.MaxDate = dtpTo.Value;
         }
 
         private void dtpFrom_ValueChanged(object sender, EventArgs e)
         {
+            if (dtpFrom.Value > dtpTo.Value)
+                dtpTo.Value = dtpFrom.Value;
             UpdateDates();
-            
         }
 
         private void dtpTo_ValueChanged(object sender, EventArgs e)
         {
             UpdateDates();
-            
+
         }
+
+        /// <summary>
+        /// Update alle benodigde gegevens wanneer de datas veranderen
+        /// </summary>
 
         private void UpdateDates()
         {
             dtpTo.MinDate = dtpFrom.Value;
-            dtpFrom.MaxDate = dtpTo.Value;
             botenLeft.Clear();
             botenRight.Clear();
             botenLeft = BootRepo.GetAvailableBoten(dtpFrom.Value, dtpTo.Value);
-            
+
             RefreshLists();
 
         }
@@ -63,11 +68,17 @@ namespace Live_Performance.Views
             lbBotenRechts.Items.Clear();
             foreach (IBoot boot in botenLeft)
             {
-                lbBotenLinks.Items.Add(boot.Naam + " - " + boot.Type);
+                string messagestring = boot.Naam + " - " + boot.Type + " " + boot.SoortBeschrijving;
+                if (Data.MotorBoten.Contains(Data.MotorBoten.Find(x => x.Naam == boot.Naam)))
+                    messagestring += " Actieradius(Km):" + Data.MotorBoten.Find(x => x.Naam == boot.Naam).ActieRadius;
+                lbBotenLinks.Items.Add(messagestring);
             }
             foreach (IBoot boot in botenRight)
             {
-                lbBotenRechts.Items.Add(boot.Naam + " - " + boot.Type);
+                string messagestring = boot.Naam + " - " + boot.Type + " " + boot.SoortBeschrijving;
+                if (Data.MotorBoten.Contains(Data.MotorBoten.Find(x => x.Naam == boot.Naam)))
+                    messagestring += " - Actieradius(Km):" + Data.MotorBoten.Find(x => x.Naam == boot.Naam).ActieRadius;
+                lbBotenRechts.Items.Add(messagestring);
             }
 
             lbArtLinks.Items.Clear();
@@ -81,6 +92,21 @@ namespace Live_Performance.Views
             {
                 lbArtRechts.Items.Add(art.Count + "x " + art.Beschrijving);
             }
+
+            cost = 0;
+            foreach (var b in botenRight)
+            {
+                if (Data.MotorBoten.Contains(Data.MotorBoten.Find(x => x.Naam == b.Naam)))
+                    cost += 15;
+                else if (Data.SpierKrachtBoten.Contains(Data.SpierKrachtBoten.Find(x => x.Naam == b.Naam)))
+                    cost += 10;
+            }
+            foreach (var ex in artikelenRight)
+            {
+                cost += (ex.Count * 1.25);
+            }
+
+            lblCost.Text = "Kosten Huur: €" + cost;
 
         }
 
@@ -128,8 +154,8 @@ namespace Live_Performance.Views
 
         private void lbArtLinks_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(lbArtLinks.SelectedIndex >= 0)
-            ArtToRight();
+            if (lbArtLinks.SelectedIndex >= 0)
+                ArtToRight();
         }
 
         private void lbArtRechts_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -182,8 +208,15 @@ namespace Live_Performance.Views
                 Data.CurrentAccount,
                 dtpFrom.Value.Date,
                 dtpTo.Value.Date)
-            { BijkomendeArtikelen = artikelenRight, Boten = botenRight});
+            { BijkomendeArtikelen = artikelenRight, Boten = botenRight });
 
+        }
+
+        private void btnBudgetBerekening_Click(object sender, EventArgs e)
+        {
+            lblResult.Visible = true;
+            double budget = Convert.ToDouble(numbBudget.Value);
+            lblResult.Text = logic.PrijsBerekening(cost, budget);
         }
     }
 }

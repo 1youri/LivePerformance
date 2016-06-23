@@ -12,8 +12,11 @@ using Oracle.DataAccess.Client;
 
 namespace Live_Performance.Repositories
 {
-    class BootRepo
+    public class BootRepo
     {
+        /// <summary>
+        /// Update alle relevante data rondom Boten
+        /// </summary>
         public static void UpdateData()
         {
             Data.MotorBoten = new List<MotorBoot>();
@@ -54,7 +57,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
         }
 
@@ -105,7 +109,61 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
+            }
+
+            List<IBoot> returnlist = new List<IBoot>();
+            returnlist.AddRange(tempMotorBooten);
+            returnlist.AddRange(tempSpierKrachtBooten);
+            return returnlist;
+        }
+
+        public static List<IBoot> GetRelaventBoten(int huurContractID)
+        {
+            List<MotorBoot> tempMotorBooten = new List<MotorBoot>();
+            List<SpierKrachtBoot> tempSpierKrachtBooten = new List<SpierKrachtBoot>();
+
+            try
+            {
+                string sql = "SELECT * FROM BOOT B, SOORT S, CONTRACTBOOT CB " +
+                             "WHERE B.SOORTID = S.SOORTID AND B.NAAM = CB.BOOTNAAM AND " +
+                             "CB.HUURCONTRACTID = :huurcontractid";
+                using (OracleConnection conn = Data.Connection())
+                {
+                    using (OracleCommand cmd = new OracleCommand(sql, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("huurcontractid", huurContractID));
+                        using (OracleDataReader r = cmd.ExecuteReader())
+                        {
+                            while (r.Read())
+                            {
+                                if (r["ISMOTORBOOT"].ToString() == "1")
+                                {
+                                    tempMotorBooten.Add(
+                                        new MotorBoot(
+                                            r["NAAM"].ToString(),
+                                            r["SOORTBESCHRIJVING"].ToString(),
+                                            r["TYPE"].ToString(),
+                                            r["TANKINHOUD"].ToInt()));
+                                }
+                                else
+                                {
+                                    tempSpierKrachtBooten.Add(
+                                        new SpierKrachtBoot(
+                                            r["NAAM"].ToString(),
+                                            r["SOORTBESCHRIJVING"].ToString(),
+                                            r["TYPE"].ToString()));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (OracleException e)
+            {
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
 
             List<IBoot> returnlist = new List<IBoot>();

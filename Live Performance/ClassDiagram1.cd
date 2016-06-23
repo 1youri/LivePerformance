@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Live_Performance.Models.HuurContract">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAABAAgAAAAAAAAAAAAAAAAAACAgAAAAAAAAA=</HashCode>
+      <FileName>Models\HuurContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Huurder" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Boten" />
+      <Property Name="BijkomendeArtikelen" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Live_Performance.Models.Account">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Live_Performance.Models.Account.Type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Account.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live_Performance.Models.ExtraArtikel">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAEAQAA=</HashCode>
+      <FileName>Models\ExtraArtikel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live_Performance.Models.Boot.MotorBoot" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Boot\MotorBoot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Live_Performance.Models.Boot.SpierKrachtBoot" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Boot\SpierKrachtBoot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Live_Performance.Models.Boot.IBoot">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Boot\IBoot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

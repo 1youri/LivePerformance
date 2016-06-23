@@ -10,8 +10,11 @@ using Oracle.DataAccess.Client;
 
 namespace Live_Performance.Repositories
 {
-    class AccountRepo
+    public class AccountRepo
     {
+        /// <summary>
+        /// Update alle relevante data rondom Accounts
+        /// </summary>
         public static void UpdateData()
         {
             Data.Accounts = new List<Account>();
@@ -41,7 +44,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
         }
 
@@ -69,7 +73,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
             
             return 0;
@@ -121,7 +126,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
 
             return 0;
@@ -154,7 +160,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
 
             return new Account(0);
@@ -183,7 +190,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
             return false;
         }

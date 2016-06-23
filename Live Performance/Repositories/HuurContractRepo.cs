@@ -10,8 +10,11 @@ using Oracle.DataAccess.Client;
 
 namespace Live_Performance.Repositories
 {
-    class HuurContractRepo
+    public class HuurContractRepo
     {
+        /// <summary>
+        /// Update alle relevante data rondom Huurcontracten
+        /// </summary>
         public static void UpdateData()
         {
             Data.HuurContracten = new List<HuurContract>();
@@ -44,7 +47,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
         }
 
@@ -78,7 +82,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
 
             return returnContract;
@@ -113,7 +118,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
             return 0;
         }
@@ -135,7 +141,8 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                ExceptionForm frm = new ExceptionForm(e);
+                frm.Show();
             }
         }
 
@@ -157,7 +164,12 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e).Show();
+                if (!Data.ShownError)
+                {
+                    ExceptionForm frm = new ExceptionForm(e);
+                    frm.ShowDialog();
+                }
+                
             }
         }
     }

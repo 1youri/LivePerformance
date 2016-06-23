@@ -14,13 +14,15 @@ namespace Live_Performance.Views
 {
     public partial class ExceptionForm : Form
     {
+        /// <summary>
+        /// Handig exceptionform, roep aan en geef de exception mee en call .Show()
+        /// </summary>
         private Exception thrownexeption;
         public ExceptionForm(Exception e)
         {
             thrownexeption = e;
             InitializeComponent();
             tbException.Text = e.ToString();
-            if (Data.ShownError) this.Close();
             Data.ShownError = true;
 
             this.Height = 125;
