@@ -22,6 +22,7 @@ namespace Live_Performance.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if(tbPassword.Text =="" || tbUsername.Text == "") MessageBox.Show("Een van de velden is leeg gelaten!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (Login.LoginUser(tbUsername.Text, tbPassword.Text))
             {
@@ -29,8 +30,9 @@ namespace Live_Performance.Views
                 MainForm frm = new MainForm();
                 frm.Show();
                 this.Close();
-                
             }
+            else
+                MessageBox.Show("Combinatie incorrect!");
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)

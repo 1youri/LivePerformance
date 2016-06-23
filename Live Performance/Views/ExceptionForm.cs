@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,13 @@ namespace Live_Performance.Views
 {
     public partial class ExceptionForm : Form
     {
-        public ExceptionForm(string ExceptionString)
+        private Exception thrownexeption;
+        public ExceptionForm(Exception e)
         {
-            throw new Exception();
+            thrownexeption = e;
             InitializeComponent();
-            tbException.Text = ExceptionString;
+            tbException.Text = e.ToString();
+            if (Data.ShownError) this.Close();
             Data.ShownError = true;
 
             this.Height = 125;
@@ -41,6 +44,11 @@ namespace Live_Performance.Views
         private void ExceptionForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            throw thrownexeption;
         }
     }
 }

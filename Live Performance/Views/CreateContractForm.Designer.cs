@@ -32,22 +32,23 @@
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.lblFrom = new System.Windows.Forms.Label();
             this.lblTo = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lbBotenLinks = new System.Windows.Forms.ListBox();
+            this.lbArtLinks = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.lbArtRechts = new System.Windows.Forms.ListBox();
+            this.lbBotenRechts = new System.Windows.Forms.ListBox();
+            this.btnBootRight = new System.Windows.Forms.Button();
+            this.btnBootLeft = new System.Windows.Forms.Button();
+            this.btnArtLeft = new System.Windows.Forms.Button();
+            this.btnArtRight = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAanmaken = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(197, 20);
             this.dtpFrom.TabIndex = 0;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // dtpTo
             // 
@@ -64,6 +66,7 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(197, 20);
             this.dtpTo.TabIndex = 1;
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             // 
             // lblFrom
             // 
@@ -85,21 +88,23 @@
             this.lblTo.TabIndex = 3;
             this.lblTo.Text = "Tot:";
             // 
-            // listBox1
+            // lbBotenLinks
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(243, 35);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(220, 186);
-            this.listBox1.TabIndex = 4;
+            this.lbBotenLinks.FormattingEnabled = true;
+            this.lbBotenLinks.Location = new System.Drawing.Point(243, 35);
+            this.lbBotenLinks.Name = "lbBotenLinks";
+            this.lbBotenLinks.Size = new System.Drawing.Size(220, 186);
+            this.lbBotenLinks.TabIndex = 4;
+            this.lbBotenLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbBotenLinks_MouseDoubleClick);
             // 
-            // listBox2
+            // lbArtLinks
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(243, 258);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(220, 147);
-            this.listBox2.TabIndex = 5;
+            this.lbArtLinks.FormattingEnabled = true;
+            this.lbArtLinks.Location = new System.Drawing.Point(243, 258);
+            this.lbArtLinks.Name = "lbArtLinks";
+            this.lbArtLinks.Size = new System.Drawing.Size(220, 147);
+            this.lbArtLinks.TabIndex = 5;
+            this.lbArtLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbArtLinks_MouseDoubleClick);
             // 
             // label1
             // 
@@ -141,57 +146,63 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Gekozen Boten";
             // 
-            // listBox3
+            // lbArtRechts
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(504, 258);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(220, 147);
-            this.listBox3.TabIndex = 9;
+            this.lbArtRechts.FormattingEnabled = true;
+            this.lbArtRechts.Location = new System.Drawing.Point(504, 258);
+            this.lbArtRechts.Name = "lbArtRechts";
+            this.lbArtRechts.Size = new System.Drawing.Size(220, 147);
+            this.lbArtRechts.TabIndex = 9;
+            this.lbArtRechts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbArtRechts_MouseDoubleClick);
             // 
-            // listBox4
+            // lbBotenRechts
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(504, 35);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(220, 186);
-            this.listBox4.TabIndex = 8;
+            this.lbBotenRechts.FormattingEnabled = true;
+            this.lbBotenRechts.Location = new System.Drawing.Point(504, 35);
+            this.lbBotenRechts.Name = "lbBotenRechts";
+            this.lbBotenRechts.Size = new System.Drawing.Size(220, 186);
+            this.lbBotenRechts.TabIndex = 8;
+            this.lbBotenRechts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbBotenRechts_MouseDoubleClick);
             // 
-            // button1
+            // btnBootRight
             // 
-            this.button1.Location = new System.Drawing.Point(470, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBootRight.Location = new System.Drawing.Point(470, 82);
+            this.btnBootRight.Name = "btnBootRight";
+            this.btnBootRight.Size = new System.Drawing.Size(28, 23);
+            this.btnBootRight.TabIndex = 12;
+            this.btnBootRight.Text = ">";
+            this.btnBootRight.UseVisualStyleBackColor = true;
+            this.btnBootRight.Click += new System.EventHandler(this.btnBootRight_Click);
             // 
-            // button2
+            // btnBootLeft
             // 
-            this.button2.Location = new System.Drawing.Point(469, 111);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBootLeft.Location = new System.Drawing.Point(469, 111);
+            this.btnBootLeft.Name = "btnBootLeft";
+            this.btnBootLeft.Size = new System.Drawing.Size(28, 23);
+            this.btnBootLeft.TabIndex = 13;
+            this.btnBootLeft.Text = "<";
+            this.btnBootLeft.UseVisualStyleBackColor = true;
+            this.btnBootLeft.Click += new System.EventHandler(this.btnBootLeft_Click_1);
             // 
-            // button3
+            // btnArtLeft
             // 
-            this.button3.Location = new System.Drawing.Point(469, 330);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(28, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "<";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnArtLeft.Location = new System.Drawing.Point(469, 330);
+            this.btnArtLeft.Name = "btnArtLeft";
+            this.btnArtLeft.Size = new System.Drawing.Size(28, 23);
+            this.btnArtLeft.TabIndex = 15;
+            this.btnArtLeft.Text = "<";
+            this.btnArtLeft.UseVisualStyleBackColor = true;
+            this.btnArtLeft.Click += new System.EventHandler(this.btnArtLeft_Click);
             // 
-            // button4
+            // btnArtRight
             // 
-            this.button4.Location = new System.Drawing.Point(470, 301);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(28, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnArtRight.Location = new System.Drawing.Point(470, 301);
+            this.btnArtRight.Name = "btnArtRight";
+            this.btnArtRight.Size = new System.Drawing.Size(28, 23);
+            this.btnArtRight.TabIndex = 14;
+            this.btnArtRight.Text = ">";
+            this.btnArtRight.UseVisualStyleBackColor = true;
+            this.btnArtRight.Click += new System.EventHandler(this.btnArtRight_Click);
             // 
             // button5
             // 
@@ -230,27 +241,39 @@
             this.label6.TabIndex = 19;
             this.label6.Text = "€";
             // 
+            // btnAanmaken
+            // 
+            this.btnAanmaken.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAanmaken.Location = new System.Drawing.Point(12, 359);
+            this.btnAanmaken.Name = "btnAanmaken";
+            this.btnAanmaken.Size = new System.Drawing.Size(197, 45);
+            this.btnAanmaken.TabIndex = 20;
+            this.btnAanmaken.Text = "HuurContract Aanmaken";
+            this.btnAanmaken.UseVisualStyleBackColor = true;
+            this.btnAanmaken.Click += new System.EventHandler(this.btnAanmaken_Click);
+            // 
             // CreateContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 411);
+            this.Controls.Add(this.btnAanmaken);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnArtLeft);
+            this.Controls.Add(this.btnArtRight);
+            this.Controls.Add(this.btnBootLeft);
+            this.Controls.Add(this.btnBootRight);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox4);
+            this.Controls.Add(this.lbArtRechts);
+            this.Controls.Add(this.lbBotenRechts);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbArtLinks);
+            this.Controls.Add(this.lbBotenLinks);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblFrom);
             this.Controls.Add(this.dtpTo);
@@ -269,21 +292,22 @@
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label lblFrom;
         private System.Windows.Forms.Label lblTo;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lbBotenLinks;
+        private System.Windows.Forms.ListBox lbArtLinks;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListBox lbArtRechts;
+        private System.Windows.Forms.ListBox lbBotenRechts;
+        private System.Windows.Forms.Button btnBootRight;
+        private System.Windows.Forms.Button btnBootLeft;
+        private System.Windows.Forms.Button btnArtLeft;
+        private System.Windows.Forms.Button btnArtRight;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAanmaken;
     }
 }

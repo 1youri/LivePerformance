@@ -48,6 +48,9 @@ namespace Live_Performance.Repositories
         public static void UpdateAllData()
         {
             AccountRepo.UpdateData();
+            HuurContractRepo.UpdateData();
+            BootRepo.UpdateData();
+            BijkomendeArtRepo.UpdateData();
         }
     }
 }

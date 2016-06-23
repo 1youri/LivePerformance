@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbDetails = new System.Windows.Forms.CheckBox();
             this.tbException = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +75,22 @@
             this.tbException.Size = new System.Drawing.Size(463, 186);
             this.tbException.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(423, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Throw";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ExceptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 280);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbException);
             this.Controls.Add(this.cbDetails);
             this.Controls.Add(this.label2);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbDetails;
         private System.Windows.Forms.TextBox tbException;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -41,7 +41,7 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e.ToString()).Show();
+                new ExceptionForm(e).Show();
             }
         }
 
@@ -69,7 +69,7 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e.ToString()).Show();
+                new ExceptionForm(e).Show();
             }
             
             return 0;
@@ -121,7 +121,7 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e.ToString()).Show();
+                new ExceptionForm(e).Show();
             }
 
             return 0;
@@ -154,7 +154,7 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e.ToString()).Show();
+                new ExceptionForm(e).Show();
             }
 
             return new Account(0);
@@ -183,7 +183,7 @@ namespace Live_Performance.Repositories
             }
             catch (OracleException e)
             {
-                new ExceptionForm(e.ToString()).Show();
+                new ExceptionForm(e).Show();
             }
             return false;
         }
