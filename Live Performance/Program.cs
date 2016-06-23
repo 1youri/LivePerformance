@@ -17,7 +17,11 @@ namespace Live_Performance
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            LoginForm frm = new LoginForm();
+            frm.Show();
+            Application.Run();
+            
         }
     }
 }

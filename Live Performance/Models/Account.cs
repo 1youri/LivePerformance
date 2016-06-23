@@ -23,12 +23,12 @@ namespace Live_Performance.Models
             Email = email;
 
             AccountType = Type.Gebruiker;
-            switch (accountType)
+            switch (accountType.ToLower())
             {
-                case "Administrator":
+                case "administrator":
                     AccountType = Type.Administrator;
                     break;
-                case "Gebruiker":
+                case "gebruiker":
                     AccountType = Type.Gebruiker;
                     break;
             }

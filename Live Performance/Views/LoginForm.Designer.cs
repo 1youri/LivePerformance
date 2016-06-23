@@ -93,6 +93,7 @@
             this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Registreren";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // pictureBox1
             // 
@@ -118,6 +119,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

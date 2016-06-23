@@ -15,6 +15,7 @@ namespace Live_Performance.Views
     {
         public ExceptionForm(string ExceptionString)
         {
+            throw new Exception();
             InitializeComponent();
             tbException.Text = ExceptionString;
             Data.ShownError = true;
